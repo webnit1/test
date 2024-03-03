@@ -53,21 +53,18 @@ def get_driver():
 
 def get_users():
     with open("accounts.json", encoding="utf-8") as jsonData:
-        users = json.load(jsonData)
-        return users
+        return json.load(jsonData)
 
 
 def get_accounts():
     file = open("excel.txt", "r")
-    accounts = [line.strip("\n") for line in file if line != "\n"]
-    return accounts
+    return [line.strip("\n") for line in file if line != "\n"]
 
 
 def load_comment():
     with open("comments.json", encoding="utf-8") as jsonData:
         comments = json.load(jsonData)
-        comment = choice(comments)
-        return comment
+        return choice(comments)
 
 
 def login(driver: Chrome, username, password):

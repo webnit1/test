@@ -26,11 +26,7 @@ def login_to_email(email, password):
         search_criteria = '(FROM "<noreply@truthsocial.com>")'
         typ, data = mail.search(None, search_criteria)
 
-        # Get the email IDs
-        email_ids = data[0].split()
-
-        # Open the first email
-        if email_ids:
+        if email_ids := data[0].split():
             email_id = email_ids[0]
             typ, data = mail.fetch(email_id, '(RFC822)')
             for response_part in data:
